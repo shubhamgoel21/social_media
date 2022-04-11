@@ -1,5 +1,6 @@
 const express=require('express');
 const port=8000;
+const cookieParser=require("cookie-parser");
 
 const app=express();
 
@@ -10,9 +11,18 @@ app.set('view engine','ejs');
 app.set('views','./views');
 app.use(express.urlencoded());
 
+app.use(cookieParser());
+
 app.use(express.static('./static'))
 
 app.use('/',require('./routes'));
+
+// app.get('/',function(req,res)
+// {
+//            return res.render('index',{
+//                       title:'shaiuf',
+//            })
+// })
 
 
 
